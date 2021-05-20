@@ -1,0 +1,25 @@
+{
+  "name": "instaclone-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/lackorol/instaclone-backend.git",
+  "author": "lackorol <57800924+lackorol@users.noreply.github.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon --exec babel-node server.js",
+    "migrate": "npx prisma migrate dev --preview-feature"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.14.2",
+    "babel-cli": "^6.26.0",
+    "nodemon": "^2.0.7",
+    "prisma": "2.23.0"
+  },
+  "dependencies": {
+    "@prisma/client": "2.23.0",
+    "apollo-server": "^2.24.0",
+    "graphql": "^15.5.0",
+    "graphql-tools": "^7.0.5"
+  },
+  "type": "module"
+}
