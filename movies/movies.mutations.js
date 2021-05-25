@@ -1,6 +1,6 @@
-import client from "./client";
+import client from "../client";
 
-export default {
+module.exports = {
     Mutation: {
     createMovie: (_, { title, year, genre }) => 
       client.movie.create({
@@ -14,3 +14,4 @@ export default {
     deleteMovie: (_, {id}) => client.movie.delete({where: {id}}),
     updateMovie: (_, {year}) => client.movie.update({where: {id}, data: {year}})
   },
+};

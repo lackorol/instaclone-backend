@@ -1,7 +1,8 @@
-import client from "./client";
+import client from "../client";
 
-export default {
-    Query: {
-      movies: () => client.movie.findMany(),
-      movie: (_, {id}) => client.movie.findUnique({ where: {id}}),
-}
+module.exports = {
+  Query: {
+    movies: () => client.movie.findMany(),
+    movie: (_, { id }) => client.movie.findUnique({ where: { id } }),
+  },
+};
