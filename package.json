@@ -6,7 +6,7 @@
   "author": "lackorol <57800924+lackorol@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon --exec node server.js",
+    "dev": "nodemon --exec babel-node server.js",
     "migrate": "npx prisma migrate dev --preview-feature"
   },
   "devDependencies": {
@@ -20,6 +20,7 @@
   "dependencies": {
     "@prisma/client": "2.23.0",
     "apollo-server": "^2.24.0",
+    "dotenv": "^10.0.0",
     "glob": "^7.1.7",
     "graphql": "^15.5.0",
     "graphql-tools": "7.0.5"
