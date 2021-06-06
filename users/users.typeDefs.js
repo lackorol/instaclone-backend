@@ -1,27 +1,27 @@
 import { gql } from "apollo-server-core";
 
 export default gql`
-type User {
-    id: String!,
-    firstName: String!,
-    lastName: String,
-    username: String!,
-    email: String,
-    createdAt: String!,
+  type User {
+    id: String!
+    firstName: String!
+    lastName: String
+    username: String!
+    email: String
+    createdAt: String!
     updatedAt: String!
-}
+  }
 
-type Mutation {
+  type Mutation {
     createAccount(
-    firstName: String!,
-    lastName: String,
-    username: String!,
-    email: String!,
-    password: String!
-    ) : User
-}
+      firstName: String!
+      lastName: String
+      username: String!
+      email: String!
+      password: String!
+    ): User
+  }
 
-type Query {
+  type Query {
     seeProfile(username: String): User
-}
+  }
 `;
