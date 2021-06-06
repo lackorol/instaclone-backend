@@ -1,17 +1,32 @@
-/* import { loadFilesSync } from "@graphql-tools/load-files";
-import { mergeResolvers, mergeTypeDefs } from "@graphql-tools/merge";
+import { loadFilesSync } from "@graphql-tools/load-files";
 import { makeExecutableSchema } from "@graphql-tools/schema";
+import * as fs from "fs";
+import Glob from "glob";
+import path from "path";
+import { fileURLToPath } from "url";
+const { glob } = Glob;
 
 
-const loadedTypes = loadFilesSync(`${__dirname}\\**\\*.typeDefs.js`);
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+//const loadedTypes = loadFilesSync(`${__dirname}\\**\\*.typeDefs.graphql`);
+const loadedTypes = glob
+  .sync(`${__dirname}\\**\\*.typeDefs.graphql`)
+  .map((x) => fs.readFileSync(x, { encoding: "utf8" }));
+
+//const loadedResolvers = loadFilesSync(
+//  `${__dirname}\\**\\*.{queries}.js`);
+
 const loadedResolvers = loadFilesSync(
-  `${__dirname}\\**\\*.{queries,mutations}.js`);
+  `${__dirname}\\users\\users.queries.js`);
+
+const schema = makeExecutableSchema(loadedTypes, loadedResolvers);
+export default schema;
 
 
-const schema = makeExecutableSchema(typeDefs, resolvers);
- */
-
-import { mergeResolvers, mergeTypeDefs } from "@graphql-tools/merge";
+/* import { mergeResolvers, mergeTypeDefs } from "@graphql-tools/merge";
 import { makeExecutableSchema } from "@graphql-tools/schema";
 import * as fs from "fs";
 import Glob from "glob";
@@ -20,10 +35,11 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 const { glob } = Glob;
-const require = createRequire(import.meta.url);
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+const require = createRequire(import.meta.url)
 
 const loadedTypes = glob
   .sync(`${__dirname}\\**\\*.typeDefs.graphql`)
@@ -31,7 +47,7 @@ const loadedTypes = glob
 
 const loadedResolvers = glob
   .sync(`${__dirname}\\**\\*.{queries,mutations}.js`)
-  .map((resolver) => createRequire(resolver));
+  .map((resolver) => require(resolver));
 
 const typeDefs = mergeTypeDefs(loadedTypes);
 const resolvers = mergeResolvers(loadedResolvers);
@@ -41,3 +57,4 @@ const schema = makeExecutableSchema({
 });
 
 export default schema;
+ */
