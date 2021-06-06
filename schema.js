@@ -1,21 +1,17 @@
 import { loadFilesSync } from "@graphql-tools/load-files";
 import { makeExecutableSchema } from "@graphql-tools/schema";
-import * as fs from "fs";
 import Glob from "glob";
-import path from "path";
-import { fileURLToPath } from "url";
 const { glob } = Glob;
 
 
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-//const loadedTypes = loadFilesSync(`${__dirname}\\**\\*.typeDefs.graphql`);
-const loadedTypes = glob
+//const __filename = fileURLToPath(import.meta.url);
+//const __dirname = path.dirname(__filename);
+const loadedTypes = loadFilesSync(`${__dirname}\\**\\*.typeDefs.js`);
+/* const loadedTypes = glob
   .sync(`${__dirname}\\**\\*.typeDefs.graphql`)
   .map((x) => fs.readFileSync(x, { encoding: "utf8" }));
-
+ */
 //const loadedResolvers = loadFilesSync(
 //  `${__dirname}\\**\\*.{queries}.js`);
 
