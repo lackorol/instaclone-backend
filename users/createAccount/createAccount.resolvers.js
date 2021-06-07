@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import client from "../client";
+import client from "../../client";
 
 export default {
   Mutation: {
@@ -34,7 +34,7 @@ export default {
             password: uglyPassword,
           },
         });
-      } catch(e) {
+      } catch (e) {
         console.log(e);
         return e;
       }
