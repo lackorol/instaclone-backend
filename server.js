@@ -1,32 +1,28 @@
-import { ApolloServer } from "apollo-server";
-import dotenv from 'dotenv';
-import schema from "./schema.js";
+import { ApolloServer } from "apollo-server-express";
+import dotenv from "dotenv";
+import express from "express";
+import logger from "morgan";
+import { resolvers, typeDefs } from "./schema.js";
 import { getUser, protectResolver } from "./users/users.utils.js";
 
-dotenv.config()
-
+dotenv.config();
+const PORT = process.env.PORT;
 const server = new ApolloServer({
-  schema,
-  context : async ({req}) => {
+  resolvers,
+  typeDefs,
+  context: async ({ req }) => {
     return {
-      loggedInUser : await getUser(req.headers.token),
-      protectResolver
-    }
-  }  
+      loggedInUser: await getUser(req.headers.token),
+      protectResolver,
+    };
+  },
 });
 
-const PORT = process.env.PORT
+const app = express();
+app.use(logger("tiny"));
+app.use(express.static("uploads"));
+server.applyMiddleware({ app });
 
-server
-  .listen(PORT)
-  .then(() => console.log(`🎉 Server is running on http://localhost:${PORT}/ `));
-
-const x = (resolver) => (root, args, context, info) => {
-  if (!context.loggedInUser) {
-    return {
-      ok: false,
-      error: "log in pls"
-    }
-  }
-  return resolver(root, args, context, info);
-}
+app.listen({ port: PORT }, () => {
+  console.log(`🎉 Server is running on http://localhost:${PORT}/ `);
+});
