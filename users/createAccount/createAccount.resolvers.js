@@ -35,8 +35,10 @@ export default {
           },
         });
       } catch (e) {
-        console.log(e);
-        return e;
+        return {
+          ok: false,
+          error: "Cant create account.",
+        };
       }
     },
   },
