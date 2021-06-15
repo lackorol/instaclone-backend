@@ -11,7 +11,7 @@ const server = new ApolloServer({
   resolvers,
   typeDefs,
   introspection: true,
-  playground: true,
+  playground: true, 
   context: async ({ req }) => {
     return {
       loggedInUser: await getUser(req.headers.token),
