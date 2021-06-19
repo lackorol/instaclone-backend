@@ -4,25 +4,25 @@ Instaclone Backend.
 
 ## User
 
-- [X] Create Account
-- [X] See Profile
-- [X] Login
-- [X] Edit Profile
-- [X] Follow User
-- [X] Unfollow User
-- [X] Change Avatar (Image Upload) 
-- [X] See Followers /w Pagination
-- [X] See Following /w Pagination
-- [ ] Computed Fields
-- [ ] Search Users
-
+- [x] Create Account
+- [x] See Profile
+- [x] Login
+- [x] Edit Profile
+- [x] Follow User
+- [x] Unfollow User
+- [x] Change Avatar (Image Upload)
+- [x] See Followers /w Pagination
+- [x] See Following /w Pagination
+- [x] Computed Fields
+- [x] Search Users
 
 ## Photos
-- [ ] See Photo
-- [ ] Upload Photo
+
+- [x] See Photo
+- [x] Upload Photo
 - [ ] Edit Photo
 - [ ] Like / Unlike Photo
 - [ ] See Photo Likes
 - [ ] See Feed
 - [ ] Search Photos
-- [ ] See Hashtags
+- [x] See Hashtag

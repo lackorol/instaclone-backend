@@ -8,7 +8,7 @@ export default {
         let hashtagObjs = [];
         if (caption) {
           const hashtags = caption.match(/#[\w]+/g);
-          const hashtagObjs = hashtags.map((hashtag) => ({
+          hashtagObjs = hashtags.map((hashtag) => ({
             where: { hashtag },
             create: { hashtag },
           })); /// parse caption
