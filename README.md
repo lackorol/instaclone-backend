@@ -22,7 +22,7 @@ Instaclone Backend.
 - [x] Upload Photo
 - [x] Edit Photo
 - [x] Like / Unlike Photo
-- [ ] See Photo Likes
+- [x] See Photo Likes
 - [ ] See Feed
 - [x] Search Photos
 - [x] See Hashtag
