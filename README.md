@@ -23,6 +23,20 @@ Instaclone Backend.
 - [x] Edit Photo
 - [x] Like / Unlike Photo
 - [x] See Photo Likes
-- [ ] See Feed
+- [x] See Feed
 - [x] Search Photos
 - [x] See Hashtag
+
+## Comments
+
+- [ ] Comment on Photo
+- [ ] Edit Comment
+- [ ] Delete Comment
+
+## Refactor
+
+- [ ] Mutation Responses
+
+## Extras
+
+- [x] S3 Image Upload
