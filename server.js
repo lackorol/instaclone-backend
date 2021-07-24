@@ -23,7 +23,7 @@ const app = express();
 app.use(logger("tiny"));
 app.use(express.static("uploads"));
 app.use(cors());
-server.applyMiddleware({ app });
+server.applyMiddleware({ app, cors: true });
 
 app.listen({ port: PORT }, () => {
   console.log(`🎉 Server is running on http://localhost:${PORT}/ `);
