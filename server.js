@@ -22,8 +22,10 @@ const server = new ApolloServer({
 const app = express();
 app.use(logger("tiny"));
 app.use(express.static("uploads"));
-app.use(cors({ credentials: true, origin: "http://localhost:3000" });
-server.applyMiddleware({ app, cors: false });
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+});
+server.applyMiddleware({ app });
 
 app.listen({ port: PORT }, () => {
   console.log(`🎉 Server is running on http://localhost:${PORT}/ `);
