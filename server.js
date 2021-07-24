@@ -1,6 +1,6 @@
 require("dotenv").config();
 import { ApolloServer } from "apollo-server-express";
-import { cors } from "cors";
+import cors from "cors";
 import express from "express";
 import logger from "morgan";
 import { resolvers, typeDefs } from "./schema.js";
