@@ -22,6 +22,7 @@ const server = new ApolloServer({
 const app = express();
 app.use(logger("tiny"));
 app.use(express.static("uploads"));
+app.use(cors({ credentials: true, origin: "http://localhost:3000" });
 server.applyMiddleware({ app, cors: false });
 
 app.listen({ port: PORT }, () => {
