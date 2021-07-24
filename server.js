@@ -1,5 +1,6 @@
 require("dotenv").config();
 import { ApolloServer } from "apollo-server-express";
+import { cors } from "cors";
 import express from "express";
 import logger from "morgan";
 import { resolvers, typeDefs } from "./schema.js";
@@ -23,7 +24,7 @@ const app = express();
 app.use(logger("tiny"));
 app.use(express.static("uploads"));
 app.use(cors());
-server.applyMiddleware({ app, cors: true });
+server.applyMiddleware({ app });
 
 app.listen({ port: PORT }, () => {
   console.log(`🎉 Server is running on http://localhost:${PORT}/ `);
