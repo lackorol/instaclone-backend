@@ -25,7 +25,7 @@ app.use(express.static("uploads"));
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
 });
-server.applyMiddleware({ app });
+server.applyMiddleware({ app, cors: false });
 
 app.listen({ port: PORT }, () => {
   console.log(`🎉 Server is running on http://localhost:${PORT}/ `);
