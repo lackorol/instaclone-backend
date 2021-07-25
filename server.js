@@ -24,7 +24,7 @@ const app = express();
 app.use(logger("tiny"));
 app.use(express.static("uploads"));
 app.use(cors({ origin: "http://localhost:3000" }));
-server.applyMiddleware({ app, cors: false });
+server.applyMiddleware({ app, path: "/graphql", cors: false });
 
 app.listen({ port: PORT }, () => {
   console.log(`🎉 Server is running on http://localhost:${PORT}/ `);
