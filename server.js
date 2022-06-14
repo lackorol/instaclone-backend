@@ -22,7 +22,14 @@ const server = new ApolloServer({
 
 const app = express();
 server.applyMiddleware({ app, cors: false });
-app.use(cors({ origin: "http://localhost:3000" }));
+
+const corsOptions = {
+  optionsSuccessStatus: 200, // For legacy browser support
+  credentials: true, // This is important.
+  origin: "http://localhost:3000",
+};
+
+app.use(cors(corsOptions));
 app.use(logger("tiny"));
 app.use(express.static("uploads"));
 
