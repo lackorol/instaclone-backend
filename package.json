@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon --exec babel-node server.js --delay 2",
-    "prod": "node server.js",
+    "prod": "babel-node server.js",
     "migrate": "npx prisma migrate dev --preview-feature"
   },
   "devDependencies": {
@@ -37,7 +37,5 @@
   "resolutions": {
     "fs-capacitor": "^6.2.0",
     "graphql-upload": "^11.0.0"
-  },
-  "type": "module",
-  "esModuleInterop": true
+  }
 }
