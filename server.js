@@ -4,7 +4,7 @@ import cors from "cors";
 import express from "express";
 import logger from "morgan";
 import { resolvers, typeDefs } from "./schema.js";
-import { getUser, protectedResolver } from "./users/users.utils.js";
+import { getUser, protectResolver } from "./users/users.utils.js";
 
 const PORT = process.env.PORT;
 const server = new ApolloServer({
