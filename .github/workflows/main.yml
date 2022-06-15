@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: 16.x
       - run: rm -rf node_modules && yarn install --frozen-lockfile
-      - run: yarn run build --if-present
+      - run: yarn run build
       - name: Deploy to Heroku
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
