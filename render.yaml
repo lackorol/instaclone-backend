@@ -15,7 +15,6 @@ services:
         fromDatabase:
           name: postgresql-adjacent-20801
           property: connectionString
-      - key: DATABASE_URL # Render PostgreSQL database
 
 databases: # Render PostgreSQL database
   - name: postgresql-adjacent-20801
