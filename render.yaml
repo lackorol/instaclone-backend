@@ -23,3 +23,5 @@ services:
 databases: # Render PostgreSQL database
   - name: postgresql-adjacent-20801
     ipAllowList: [] # only allow internal connections
+  - name: postgresql-triangular-83413
+    ipAllowList: [] # only allow internal connections
