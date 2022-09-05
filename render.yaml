@@ -15,7 +15,15 @@ services:
         fromDatabase:
           name: postgresql-adjacent-20801
           property: connectionString
+      - key: DATABASE_URL # Render PostgreSQL database
+        fromDatabase:
+          name: postgresql-triangular-83413
+          property: connectionString
 
 databases: # Render PostgreSQL database
   - name: postgresql-adjacent-20801
     ipAllowList: [] # only allow internal connections
+    plan: free
+  - name: postgresql-triangular-83413
+    ipAllowList: [] # only allow internal connections
+    plan: free
