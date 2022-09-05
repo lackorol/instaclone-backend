@@ -20,7 +20,7 @@ services:
           name: postgresql-triangular-83413
           property: connectionString
       - key: NODE_ENV
-        value: development
+        sync: false
 
 databases: # Render PostgreSQL database
   - name: postgresql-adjacent-20801
