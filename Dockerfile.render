@@ -27,7 +27,7 @@ WORKDIR /app
 # Source all /app/.profile.d/*.sh files before process start.
 # These are created by buildpacks.
 # https://devcenter.heroku.com/articles/buildpack-api#profile-d-scripts
-ENTRYPOINT [ "/render/setup-env" ]
+# ENTRYPOINT [ "/render/setup-env" ]
 
 # 3. By default, run the 'web' process type defined in the app's Procfile
 # You may override the process type that is run by replacing 'web' with another
