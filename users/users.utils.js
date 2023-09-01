@@ -6,8 +6,8 @@ export const getUser = async (token) => {
     if (!token) {
       return null;
     }
-    const { id } = await jwt.verify(token, process.env.SECRET_KEY);
-    const user = await client.user.findUnique({ where: { id } });
+    const {id} = await jwt.verify(token, process.env.SECRET_KEY);
+    const user = await client.user.findUnique({where: {id}});
     if (user) {
       return user;
     } else {
@@ -19,13 +19,19 @@ export const getUser = async (token) => {
 };
 
 export function protectedResolver(ourResolver) {
-    return function (root, args, context, info) {
-        if (!context.loggedInUser) {
-            return {
-              ok: false,
-              error: "Please log in to perfom this action.",
-            };
-          }
-          return ourResolver(root, args, context, info);
+  return function (root, args, context, info) {
+    if (!context.loggedInUser) {
+      const query = info.operation.operation === 'query';
+
+      if (query) {
+        return null;
+      } else {
+        return {
+          ok: false,
+          error: "Please log in to perfom this action.",
+        };
+      }
     }
+    return ourResolver(root, args, context, info);
+  };
 }
